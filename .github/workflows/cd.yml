@@ -59,7 +59,7 @@ jobs:
           # Builder instance
           builder: buildx
           # List of bake definition files
-          workdir: # optional, default is .
+          workdir: . # optional, default is .
           # List of bake targets
           no-cache: true
           # Always attempt to pull a newer version of the image
