@@ -59,7 +59,6 @@ jobs:
           # List of bake definition files
           workdir: . # optional, default is .
           # List of bake targets
-          targets: ${{ steps.meta.outputs.tags }}
           no-cache: true
           # Always attempt to pull a newer version of the image
           # Load is a shorthand for --set=*.output=type=docker
