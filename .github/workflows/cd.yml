@@ -59,7 +59,7 @@ jobs:
           # List of bake definition files
           workdir: . # optional, default is .
           # List of bake targets
-          targets: brinishness/docker-test | ghcr.io/${{ github.repository }}
+          targets: brinishness/docker-test,ghcr.io/${{ github.repository }}
           tags: ${{ steps.meta.outputs.tags }}
           no-cache: true
           # Always attempt to pull a newer version of the image
