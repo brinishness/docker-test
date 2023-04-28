@@ -58,6 +58,7 @@ jobs:
           # List of bake definition files
           workdir: . # optional, default is .
           # List of bake targets
+          targets: ${{ steps.meta.outputs.tags }}
           no-cache: true
           platform: linux/amd64,linux/arm6,linux/arm64/v8,linux/arm/v7
           # Always attempt to pull a newer version of the image
