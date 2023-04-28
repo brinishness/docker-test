@@ -51,19 +51,13 @@ jobs:
           use: true
           platforms: linux/amd64,linux/arm6,linux/arm64/v8,linux/arm/v7
 
-      - name: Docker Buildx Bake
-        # You may pin to the exact commit or the version.
-        # uses: docker/bake-action@ad0d2a9712378c502a7d5c590deb0d7a02d2a61d
-        uses: docker/bake-action@v3.0.1
+      - name: Build and push Docker images
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
-          # List of bake definition files
-          workdir: . # optional, default is .
-          # List of bake targets
-          targets: linux/amd64,linux/arm6,linux/arm64/v8,linux/arm/v7
-          no-cache: true
-          # Always attempt to pull a newer version of the image
-          # Load is a shorthand for --set=*.output=type=docker
+          context: .
           push: true
-          # SBOM is a shorthand for --set=*.attest=type=sbom
-          # List of targets values to override (eg. targetpattern.key=value)
-          # Remote bake definition to build from
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          builder: |
+            ghcr.io/${{ github.repository }}
+            brinishness/docker-test:brinishness/docker-test
