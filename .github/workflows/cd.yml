@@ -36,10 +36,17 @@ jobs:
             brinishness/docker-test
             ghcr.io/${{ github.repository }}
       
-      - name: Build and push Docker images
-        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+#      - name: Build and push Docker images
+#        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+#        with:
+#          context: .
+#          push: true
+#          tags: ${{ steps.meta.outputs.tags }}
+#          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Docker Setup Buildx
+        uses: docker/setup-buildx-action@v2.5.0
         with:
-          context: .
+          # Fixed platforms for current node. If not empty, values take priority over the detected ones
+          platforms: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
