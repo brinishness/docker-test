@@ -59,7 +59,7 @@ jobs:
           # List of bake definition files
           workdir: . # optional, default is .
           # List of bake targets
-          targets: all
+          targets: linux/amd64,linux/arm6,linux/arm64/v8,linux/arm/v7
           no-cache: true
           # Always attempt to pull a newer version of the image
           # Load is a shorthand for --set=*.output=type=docker
