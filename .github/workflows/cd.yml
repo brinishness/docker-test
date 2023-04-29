@@ -52,7 +52,7 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/arm64/v8,linux/arm/v7
 
       - name: 构建并发布镜像
-        uses: docker/build-push-action@v6.2
+        uses: docker/build-push-action@v4.0.0
         with:
           context: .
           no-cache: true
