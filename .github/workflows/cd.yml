@@ -3,7 +3,7 @@ name: CD
 on:
   push:
     tags:
-      - '*'
+      - 'v*.*.*'
 jobs:
   push_to_registries:
     name: 发布多平台docker镜像
