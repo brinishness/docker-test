@@ -58,6 +58,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          builder: |
-            ghcr.io/${{ github.repository }}:${{ steps.meta.outputs.tags }}
-            brinishness/docker-test:${{ steps.meta.outputs.tags }}
+#          builder: |
+#            ghcr.io/${{ github.repository }}
+#            brinishness/docker-test
